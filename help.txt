@@ -1,0 +1,13 @@
+
+  [0m[37m[1m[4mpino-kafka[22m[39m[0m
+
+  [36m[1mFlags[22m[39m
+  [0m-h  | --help              Display Help
+  -v  | --version           display version
+  -s  | --settings          read settings from a JSON file (switches take precedence)
+  -b  | --brokers           broker list for kafka producer. comma seperated
+  -d  | --defaultTopic      default topic name for kafka.
+  -e  | --echo              echoing received messages to stdout
+  --kafka.${config}         additional kafka options. Example usage:
+                                --kafka.compression.codec='gzip' --kafka.acks='all'
+

@@ -22,13 +22,15 @@ $ node foo | pino-kafka -b 10.10.10.5
 ```
 
 ## Options
-
++ `--brokers` (`-b`): broker list for kafka producer. Comma seperated hosts
++ `--defaultTopic` (`-d`): default topic name for kafka. If the log message contains a topic field it will be used instead.
 + `--reconnect` (`-r`): enable reconnecting to kafka broker. Default: off
 + `--reconnectTries <n>` (`-t <n>`): set number (`<n>`) of reconnect attempts
   before giving up. Default: infinite
 + `--echo` (`-e`): echo the received messages to stdout. Default: enabled.
 + `--no-echo` (`-ne`): disable echoing received messages to stdout.
-
++ `--settings`: path to config JSON file
++ `--kafka.$config`: any kafka configuration can be passed with prefix `kafka`. Please visit [node-rdkafka configuration](https://github.com/edenhill/librdkafka/blob/v1.3.0/CONFIGURATION.md) for available options. Note that only producer and global configuration properties will be used.
 ### Settings JSON File
 
 The `--settings` switch can be used to specify a JSON file that contains
@@ -65,3 +67,37 @@ $ yes | pino-socket -s ./settings.json -b 10.10.10.11
 ```
 
 The connection will be made to address `10.10.10.11` with the default topic port `test`.
+
+### Kafka Settings
+
+You can pass `node-rdkafka` producer configuration by prefixing the property with `kafka.` For example:
+```bash
+$ yes | pino-socket --kafka.retries=5 --kafka.retry.backoff.ms=500
+```
+
+In the Setting JSON File you can use followings:
+```json
+{
+  "kafka": {
+    "retries": "5",
+    "retry.backoff.ms": "500"
+  }
+}
+```
+
+Following will work also:
+```json
+{
+  "kafka": {
+    "retries": "5",
+    "retry":{
+      "backoff": {
+        "ms":  "500"
+      }
+    }
+  }
+}
+```
+## Requirements
+This library depends on `node-rdkafka`.
+Please visit [node-rdkafka](https://github.com/Blizzard/node-rdkafka#requirements) for requirements.

@@ -28,7 +28,6 @@ $ node foo | pino-kafka -b 10.10.10.5
 + `--reconnectTries <n>` (`-t <n>`): set number (`<n>`) of reconnect attempts
   before giving up. Default: infinite
 + `--echo` (`-e`): echo the received messages to stdout. Default: enabled.
-+ `--no-echo` (`-ne`): disable echoing received messages to stdout.
 + `--settings`: path to config JSON file
 + `--kafka.$config`: any kafka configuration can be passed with prefix `kafka`. Please visit [node-rdkafka configuration](https://github.com/edenhill/librdkafka/blob/v1.3.0/CONFIGURATION.md) for available options. Note that only producer and global configuration properties will be used.
 ### Settings JSON File

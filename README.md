@@ -28,8 +28,12 @@ $ node foo | pino-kafka -b 10.10.10.5
 + `--reconnectTries <n>` (`-t <n>`): set number (`<n>`) of reconnect attempts
   before giving up. Default: infinite
 + `--echo` (`-e`): echo the received messages to stdout. Default: enabled.
-+ `--settings`: path to config JSON file
-+ `--kafka.$config`: any kafka configuration can be passed with prefix `kafka`. Please visit [node-rdkafka configuration](https://github.com/edenhill/librdkafka/blob/v1.3.0/CONFIGURATION.md) for available options. Note that only producer and global configuration properties will be used.
++ `--settings`: path to config JSON file. Have a look at [Settings JSON file](#settings-json-file) section for details and examples
++ `--kafka.$config`: any kafka configuration can be passed with prefix `kafka`. Please visit [node-rdkafka configuration](https://github.com/edenhill/librdkafka/blob/v1.3.0/CONFIGURATION.md) for available options.
+Note that only producer and global configuration properties will be used.
+Have a look at [Kafka Settings](#kafka-settings) section for details and examples
+
+
 ### Settings JSON File
 
 The `--settings` switch can be used to specify a JSON file that contains
@@ -99,4 +103,4 @@ Following will work also:
 ```
 ## Requirements
 This library depends on `node-rdkafka`.
-Please visit [node-rdkafka](https://github.com/Blizzard/node-rdkafka#requirements) for requirements.
+Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdkafka#requirements).

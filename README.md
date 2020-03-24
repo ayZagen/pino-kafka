@@ -62,7 +62,7 @@ file. For example, given the settings file:
 And the command line:
 
 ```bash
-$ yes | pino-socket -s ./settings.json -b 10.10.10.11
+$ yes | pino-kafka -s ./settings.json -b 10.10.10.11
 ```
 
 The connection will be made to address `10.10.10.11` with the default topic port `test`.
@@ -71,7 +71,7 @@ The connection will be made to address `10.10.10.11` with the default topic port
 
 You can pass `node-rdkafka` producer configuration by prefixing the property with `kafka.` For example:
 ```bash
-$ yes | pino-socket --kafka.retries=5 --kafka.retry.backoff.ms=500
+$ yes | pino-kafka --kafka.retries=5 --kafka.retry.backoff.ms=500
 ```
 
 In the Setting JSON File you can use followings:

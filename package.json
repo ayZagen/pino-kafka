@@ -1,11 +1,12 @@
 {
   "name": "@plusauth/pino-kafka",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A pino 'transport' for writing to kafka",
   "homepage": "https://github.com/pinojs/pino-kafka",
   "bugs": "https://github.com/pinojs/pino-kafka/issues",
   "main": "pkafka.js",
   "scripts": {
+    "test": "mocha --timeout 30000 test/**.test.js --exit",
     "release": "standard-version --no-verify"
   },
   "bin": {
@@ -23,18 +24,17 @@
     "url": "https://github.com/ayZagen/pino-kafka"
   },
   "dependencies": {
-    "backoff": "^2.5.0",
     "minimist": "^1.2.5",
-    "node-rdkafka": "^2.7.4",
-    "pump": "^3.0.0",
-    "readable-stream": "^3.6.0"
+    "node-rdkafka": "^2.7.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.2.0",
     "husky": "^4.2.3",
+    "mocha": "^7.1.1",
+    "pino": "^5.17.0",
     "standard-version": "^7.1.0"
-    },
+  },
   "engines": {
     "node": ">=6.0.0"
   },

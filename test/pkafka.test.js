@@ -19,32 +19,32 @@ function initConsumer(done) {
     'socket.timeout.ms': options.timeout,
     'group.id': options.consumerGroup,
     'metadata.broker.list': options.brokers,
-    'rebalance_cb': function (err, assignment) {
-
-      if (err.code === CODES.ERRORS.ERR__ASSIGN_PARTITIONS) {
-        this.assign(assignment);
-      } else if (err.code == CODES.ERRORS.ERR__REVOKE_PARTITIONS) {
-        this.unassign();
-      } else {
-        console.error(err)
-        done(err)
-      }
-    }
-  }, {})
+    'enable.auto.commit': false,
+    'debug': 'broker,generic,consumer,topic'
+  }, {
+    'auto.offset.reset': 'earliest' // consume from the start
+  })
 
   consumer.connect({timeout: options.timeout}, (err) => {
     if (err) {
+      console.log('err', err)
       done(err)
     }
   })
+  consumer.on('event.log', function (log) {
+    console.log(log.message)
+  })
   consumer
     .on('ready', () => {
+      console.log('ready')
       consumer.subscribe([options.topic]);
       this.consumer = consumer
       this.consumer.consume();
+      this.consumer.commit()
       done(null, consumer)
     })
     .on('error', (err) => {
+      console.log(err)
       done(err)
     })
 }

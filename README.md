@@ -24,7 +24,7 @@ Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdka
 
 ## Usage
 ### CLI
-Given an application `foo` that logs via [pino][pino], and a kafka broker listening on `10.10.10.5` you would use `pino-kafka` as:
+Given an application `foo` that logs via [pino][pino], and a kafka broker listening on `10.10.10.5:9200` you would use `pino-kafka` as:
 
 ```bash
 $ node foo | pino-kafka -b 10.10.10.5:9200

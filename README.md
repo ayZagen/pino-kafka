@@ -19,13 +19,21 @@ Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdka
 
 
 ## Usage
-
+### CLI
 Given an application `foo` that logs via [pino][pino], and a kafka broker listening on `10.10.10.5` you would use `pino-kafka` as:
 
 ```bash
 $ node foo | pino-kafka -b 10.10.10.5
 ```
 
+### Programmatic Usage
+Initialize `pino-kafka` and pass it to `pino`.
+```js
+const pino = require('pino')
+const pkafka = require('pino-kafka')
+
+const logger = pino({}, pkafka({ brokers: "10.10.10.5"}))
+```
 ## Options
 + `--brokers` (`-b`): broker list for kafka producer. Comma seperated hosts
 + `--defaultTopic` (`-d`): default topic name for kafka. If the log message contains a topic field it will be used instead.
@@ -42,7 +50,7 @@ Have a look at [Kafka Settings](#kafka-settings) section for details and example
 ### Settings JSON File
 
 The `--settings` switch can be used to specify a JSON file that contains
-a hash of settings for the the application. A full settings file is:
+a hash of settings for the application. A full settings file is:
 
 ```json
 {

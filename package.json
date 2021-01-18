@@ -6,7 +6,7 @@
   "bugs": "https://github.com/pinojs/pino-kafka/issues",
   "main": "pkafka.js",
   "scripts": {
-    "test": "mocha --timeout 640000 --exit test/**.test.js",
+    "test": "mocha --timeout 15000 --exit test/**.test.js",
     "release": "standard-version --no-verify"
   },
   "bin": {

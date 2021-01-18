@@ -1,3 +1,5 @@
+![pino-kafka](assets/logo.png)
+
 # pino-kafka
 
 This module provides a "transport" for [pino][pino] that simply forwards

@@ -1,5 +1,5 @@
 {
-  "name": "@plusauth/pino-kafka",
+  "name": "pino-kafka",
   "version": "0.0.2",
   "description": "A pino 'transport' for writing to kafka",
   "homepage": "https://github.com/pinojs/pino-kafka",

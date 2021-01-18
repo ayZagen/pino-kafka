@@ -61,7 +61,9 @@ module.exports = function pinoKafka(opts) {
             opts.on.error.call(kafkaStream, err)
             cb(err)
           } else {
-            process.stdout.write(body)
+            if (opts.echo){
+              process.stdout.write(body)
+            }
             cb()
           }
         })

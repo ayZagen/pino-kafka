@@ -1,0 +1,6 @@
+.github
+test
+.editorconfig
+.gitignore
+CHANGELOG.md
+docker-compose.yml

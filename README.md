@@ -117,5 +117,25 @@ Following will work also:
 }
 ```
 
+## Testing
+For running tests make sure you installed dependencies with `npm install` or `yarn` and have a running kafka.
+More easily, if you have docker and docker-compose installed, you can create one with following.
+
+```bash
+$ cd pino-kafka
+$ docker-compose up -d
+```
+
+Look at [docker-compose file](docker-compose.yml) for more details.
+
+After you all setup, just run test command with following:
+```bash
+$ npm run test
+# or with yarn
+$ yarn test
+```
+
+> **NOTE**: If you use your own kafka setup, you may need to change test configuration accordingly to your needs(ip, topic etc.)
+
 ## License
 [MIT](LICENSE)

@@ -65,4 +65,10 @@ describe('simple produce', function () {
     })
   })
 
+  after( function(done){
+    this.consumer.disconnect(()=>{
+      done()
+    })
+  })
+
 })

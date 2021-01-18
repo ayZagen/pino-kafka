@@ -13,6 +13,9 @@ $ yarn global add pino-kafka
 
 [pino]: https://www.npmjs.com/package/pino
 
+## Requirements
+This library depends on [node-rdkafka](https://github.com/Blizzard/node-rdkafka). You can check its requirements from [here](https://github.com/Blizzard/node-rdkafka#requirements)
+
 ## Usage
 
 Given an application `foo` that logs via [pino][pino], and a kafka broker listening on `10.10.10.5` you would use `pino-kafka` as:

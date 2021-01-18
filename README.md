@@ -14,7 +14,9 @@ $ yarn global add pino-kafka
 [pino]: https://www.npmjs.com/package/pino
 
 ## Requirements
-This library depends on [node-rdkafka](https://github.com/Blizzard/node-rdkafka). You can check its requirements from [here](https://github.com/Blizzard/node-rdkafka#requirements)
+This library depends on `node-rdkafka`.
+Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdkafka#requirements).
+
 
 ## Usage
 
@@ -104,6 +106,3 @@ Following will work also:
   }
 }
 ```
-## Requirements
-This library depends on `node-rdkafka`.
-Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdkafka#requirements).

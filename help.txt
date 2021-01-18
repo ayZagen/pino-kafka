@@ -7,8 +7,7 @@
   -b  | --brokers           broker list for kafka producer. comma seperated
   -d  | --defaultTopic      default topic name for kafka.
   -s  | --settings          read settings from a JSON file (switches take precedence)
-  -r  | --reconnect         enable reconnecting to kafka broker. Default: off
-  -t  | --reconnectTries    set number of reconnect attempts before giving up. Default: infinite
+  -t  | --timeout           timeout for initial broker connection in milliseconds. Default 10000
   -e  | --echo              echoing received messages to stdout. Default: enabled
   --kafka.${config}         additional kafka options. Example usage:
                                 --kafka.compression.codec='gzip' --kafka.acks='all'

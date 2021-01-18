@@ -12,49 +12,48 @@ const options = {
 }
 let consumer
 
-async function initConsumer() {
-  return new Promise((resolve, reject) => {
+function initConsumer(done) {
 
-    consumer = new KafkaConsumer({
-      "metadata.request.timeout.ms": 2000,
-      'socket.timeout.ms': 10000,
-      'group.id': options.consumerGroup,
-      'metadata.broker.list': options.brokers,
-      'rebalance_cb': function (err, assignment) {
+  consumer = new KafkaConsumer({
+    "metadata.request.timeout.ms": options.timeout,
+    'socket.timeout.ms': options.timeout,
+    'group.id': options.consumerGroup,
+    'metadata.broker.list': options.brokers,
+    'rebalance_cb': function (err, assignment) {
 
-        if (err.code === CODES.ERRORS.ERR__ASSIGN_PARTITIONS) {
-          // Note: this can throw when you are disconnected. Take care and wrap it in
-          // a try catch if that matters to you
-          this.assign(assignment);
-        } else if (err.code == CODES.ERRORS.ERR__REVOKE_PARTITIONS) {
-          // Same as above
-          this.unassign();
-        } else {
-          console.error(err)
-          reject(err)
-        }
-
+      if (err.code === CODES.ERRORS.ERR__ASSIGN_PARTITIONS) {
+        this.assign(assignment);
+      } else if (err.code == CODES.ERRORS.ERR__REVOKE_PARTITIONS) {
+        this.unassign();
+      } else {
+        console.error(err)
+        done(err)
       }
-    }, {})
+    }
+  }, {})
 
-    consumer.connect()
-    consumer
-      .on('ready', () => {
-        consumer.subscribe([options.topic]);
-        this.consumer = consumer
-        this.consumer.consume();
-
-        resolve(consumer)
-      })
-      .on('error', (err) => {
-        reject(err)
-      })
+  consumer.connect({timeout: options.timeout}, (err) => {
+    if (err) {
+      done(err)
+    }
   })
+  consumer
+    .on('ready', () => {
+      consumer.subscribe([options.topic]);
+      this.consumer = consumer
+      this.consumer.consume();
+      done(null, consumer)
+    })
+    .on('error', (err) => {
+      done(err)
+    })
 }
 
 describe('simple produce', function () {
 
-  before(initConsumer)
+  before(function (done) {
+    initConsumer.call(this,done)
+  })
 
   it('should write successfully to kafka topic', function (done) {
     const logger = pino(pKafka({
@@ -85,9 +84,13 @@ describe('simple produce', function () {
   })
 
   after(function (done) {
-    this.consumer.disconnect(() => {
+    if (this.consumer) {
+      this.consumer.disconnect(() => {
+        done()
+      })
+    } else {
       done()
-    })
+    }
   })
 
 })

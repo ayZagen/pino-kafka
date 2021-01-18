@@ -2,7 +2,15 @@ name: Run tests
 
 on:
   push:
+    paths:
+      - '**.js'
+      - '**.json'
+      - '**.yml'
   pull_request:
+    paths:
+      - '**.js'
+      - '**.json'
+      - '**.yml'
 
 jobs:
   build:

@@ -118,3 +118,6 @@ Following will work also:
   }
 }
 ```
+
+## License
+[MIT](LICENSE)

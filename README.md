@@ -1,4 +1,6 @@
-![pino-kafka](assets/logo.png)
+<p align="center">
+  <img src="assets/logo.png" alt="pino to kafka"/>
+</p>
 
 # pino-kafka
 

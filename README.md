@@ -9,7 +9,7 @@ messages to kafka.
 
 You should install `pino-kafka` globally for ease of use:
 
-```bash
+```shell
 $ npm install --production -g pino-kafka
 ### or with yarn
 $ yarn global add pino-kafka
@@ -27,7 +27,7 @@ Have a look at [node-rdkafka requirements](https://github.com/Blizzard/node-rdka
 Given an application `foo` that logs via [pino][pino], and a kafka broker listening on `10.10.10.5` you would use `pino-kafka` as:
 
 ```bash
-$ node foo | pino-kafka -b 10.10.10.5
+$ node foo | pino-kafka -b 10.10.10.5:9200
 ```
 
 ### Programmatic Usage
@@ -36,7 +36,7 @@ Initialize `pino-kafka` and pass it to `pino`.
 const pino = require('pino')
 const pkafka = require('pino-kafka')
 
-const logger = pino({}, pkafka({ brokers: "10.10.10.5"}))
+const logger = pino({}, pkafka({ brokers: "10.10.10.5:9200"}))
 ```
 ## Options
 + `--brokers` (`-b`): broker list for kafka producer. Comma seperated hosts
@@ -81,10 +81,10 @@ file. For example, given the settings file:
 And the command line:
 
 ```bash
-$ yes | pino-kafka -s ./settings.json -b 10.10.10.11
+$ yes | pino-kafka -s ./settings.json -b 10.10.10.11:9200
 ```
 
-The connection will be made to address `10.10.10.11` with the default topic port `test`.
+The connection will be made to address `10.10.10.11:9200` with the default topic `test`.
 
 ### Kafka Settings
 

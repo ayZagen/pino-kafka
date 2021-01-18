@@ -74,7 +74,7 @@ start(minimist(process.argv.slice(2), {
       'message.send.max.retries': 10000000,
       'acks': 'all'
     },
-    echo: true,
+    echo: false,
     timeout: 10000,
     brokers: '10.6.25.11:9092, 10.6.25.12:9092',
     defaultTopic: 'blackbox'

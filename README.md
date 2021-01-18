@@ -40,11 +40,9 @@ const logger = pino({}, pkafka({ brokers: "10.10.10.5"}))
 ```
 ## Options
 + `--brokers` (`-b`): broker list for kafka producer. Comma seperated hosts
-+ `--defaultTopic` (`-d`): default topic name for kafka. If the log message contains a topic field it will be used instead.
-+ `--reconnect` (`-r`): enable reconnecting to kafka broker. Default: off
-+ `--reconnectTries <n>` (`-t <n>`): set number (`<n>`) of reconnect attempts
-  before giving up. Default: infinite
-+ `--echo` (`-e`): echo the received messages to stdout. Default: enabled.
++ `--defaultTopic` (`-d`): default topic name for kafka.
++ `--timeout` (`-t`): timeout for initial broker connection in milliseconds. Default 10000
++ `--echo` (`-e`): echo the received messages to stdout. Default: false.
 + `--settings`: path to config JSON file. Have a look at [Settings JSON file](#settings-json-file) section for details and examples
 + `--kafka.$config`: any kafka configuration can be passed with prefix `kafka`. Please visit [node-rdkafka configuration](https://github.com/edenhill/librdkafka/blob/v1.3.0/CONFIGURATION.md) for available options.
 Note that only producer and global configuration properties will be used.

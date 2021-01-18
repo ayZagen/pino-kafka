@@ -8,7 +8,7 @@
   -d  | --defaultTopic      default topic name for kafka.
   -s  | --settings          read settings from a JSON file (switches take precedence)
   -t  | --timeout           timeout for initial broker connection in milliseconds. Default 10000
-  -e  | --echo              echoing received messages to stdout. Default: enabled
+  -e  | --echo              echoing received messages to stdout. Default: false
   --kafka.${config}         additional kafka options. Example usage:
                                 --kafka.compression.codec='gzip' --kafka.acks='all'
 

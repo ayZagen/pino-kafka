@@ -19,24 +19,18 @@ function initConsumer(done) {
     'socket.timeout.ms': options.timeout,
     'group.id': options.consumerGroup,
     'metadata.broker.list': options.brokers,
-    'enable.auto.commit': false,
-    'debug': 'broker,generic,consumer,topic'
+    'enable.auto.commit': false
   }, {
     'auto.offset.reset': 'earliest' // consume from the start
   })
 
   consumer.connect({timeout: options.timeout}, (err) => {
     if (err) {
-      console.log('err', err)
       done(err)
     }
   })
-  consumer.on('event.log', function (log) {
-    console.log(log.message)
-  })
   consumer
     .on('ready', () => {
-      console.log('ready')
       consumer.subscribe([options.topic]);
       this.consumer = consumer
       this.consumer.consume();
@@ -44,7 +38,6 @@ function initConsumer(done) {
       done(null, consumer)
     })
     .on('error', (err) => {
-      console.log(err)
       done(err)
     })
 }

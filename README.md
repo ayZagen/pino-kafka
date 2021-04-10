@@ -123,9 +123,17 @@ You can access `node-rdkafka` producer from pino stream with `_kafka`.
 For example:
 ```js
 const pino = require('pino')
+const pkafka = require('pino-kafka')
 
-const logger = pino({}, pkafka({ brokers: "10.10.10.5:9200"}))
+const pKafkaStream = pkafka({ brokers: "10.10.10.5:9200"})
+const logger = pino({}, pKafkaStream)
 
+// From pino-kafka instance
+pKafkaStream._kafka.getMetadata({}, (err, data)=> {
+    //...
+})
+
+// From logger
 logger[pino.symbols.streamSym]._kafka.getMetadata({}, (err, data)=> {
     //...
 })

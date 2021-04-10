@@ -56,7 +56,6 @@ function start (opts) {
 
   pump(process.stdin, stream)
 
-
   function terminator( sig ) {
     if ( typeof sig === 'string' ) {
       flushKafkaQueue(function (err) {

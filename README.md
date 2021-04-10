@@ -117,7 +117,7 @@ Following will work also:
 }
 ```
 
-### Accessing Internal Kafka Producer
+## Accessing Internal Kafka Producer
 You can access `node-rdkafka` producer from pino stream with `_kafka`.
 
 For example:

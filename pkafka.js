@@ -72,6 +72,8 @@ module.exports = function pinoKafka(opts) {
 
   inputStream.pipe(through)
 
+  through._kafka = kafkaStream
+
   return through;
 }
 

@@ -42,6 +42,16 @@ function initConsumer(done) {
     })
 }
 
+describe('api', function () {
+  it('should expose kafka producer', function () {
+    const logger = pino(pKafka({
+      brokers: options.brokers,
+      timeout: options.timeout,
+      defaultTopic: options.topic
+    }))
+    assert(logger[pino.symbols.streamSym]._kafka)
+  });
+})
 describe('simple produce', function () {
 
   before(function (done) {

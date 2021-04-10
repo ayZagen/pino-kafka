@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/ayZagen/pino-kafka/compare/v0.1.0...v0.1.1) (2021-04-10)
+
+
+### Features
+
+* expose kafka stream ([a1a0e2f](https://github.com/ayZagen/pino-kafka/commit/a1a0e2faf70ab8a2906307c4472b20c2a74afc14))
+
 # 0.1.0 (2021-01-18)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "pino-kafka",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A pino 'transport' for writing to kafka",
   "homepage": "https://github.com/ayZagen/pino-kafka",
   "bugs": "https://github.com/ayZagen/pino-kafka/issues",

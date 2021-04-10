@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/ayZagen/pino-kafka/compare/v0.1.1...v0.1.2) (2021-04-10)
+
+
+### Features
+
+* **cli:** flush kafka queue on process exit ([5793b40](https://github.com/ayZagen/pino-kafka/commit/5793b40c750aa701e76a3ca52a746ff89a4860a5))
+
 ## [0.1.1](https://github.com/ayZagen/pino-kafka/compare/v0.1.0...v0.1.1) (2021-04-10)
 
 

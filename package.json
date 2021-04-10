@@ -40,11 +40,6 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "release-it": {
     "plugins": {
       "@release-it/conventional-changelog": {

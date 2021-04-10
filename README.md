@@ -117,6 +117,20 @@ Following will work also:
 }
 ```
 
+### Accessing Internal Kafka Producer
+You can access `node-rdkafka` producer from pino stream with `_kafka`.
+
+For example:
+```js
+const pino = require('pino')
+
+const logger = pino({}, pkafka({ brokers: "10.10.10.5:9200"}))
+
+logger[pino.symbols.streamSym]._kafka.getMetadata({}, (err, data)=> {
+    //...
+})
+```
+
 ## Testing
 For running tests make sure you installed dependencies with `npm install` or `yarn` and have a running kafka.
 More easily, if you have docker and docker-compose installed, you can create one with following.

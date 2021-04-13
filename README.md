@@ -39,7 +39,7 @@ const pkafka = require('pino-kafka')
 const logger = pino({}, pkafka({ brokers: "10.10.10.5:9200"}))
 ```
 ## Options
-+ `--brokers` (`-b`): broker list for kafka producer. Comma seperated hosts
++ `--brokers` (`-b`): broker list for kafka producer. Comma separated
 + `--defaultTopic` (`-d`): default topic name for kafka.
 + `--timeout` (`-t`): timeout for initial broker connection in milliseconds. Default 10000
 + `--echo` (`-e`): echo the received messages to stdout. Default: false.

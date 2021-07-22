@@ -37,6 +37,7 @@ const pino = require('pino')
 const pkafka = require('pino-kafka')
 
 const logger = pino({}, pkafka({ brokers: "10.10.10.5:9200"}))
+logger.info('hello world')
 ```
 ## Options
 + `--brokers` (`-b`): broker list for kafka producer. Comma separated

@@ -84,6 +84,12 @@ function start (opts) {
       }
     });
   });
+
+  process.stdin.on('end', function() {
+      flushKafkaQueue(function (err) {
+        process.exit(err ? 1 : 0);
+      });
+  })
 }
 
 start(minimist(process.argv.slice(2), {
